@@ -1,1 +1,1 @@
-# workspace-template
+# template

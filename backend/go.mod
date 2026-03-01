@@ -1,3 +1,3 @@
-module github.com/tkeiyama/workspace-template/backend
+module github.com/tkeiyama/template/backend
 
 go 1.25.6

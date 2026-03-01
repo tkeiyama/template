@@ -1,4 +1,4 @@
-name: workspace-template
+name: template
 
 services:
   workspace:

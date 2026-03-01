@@ -1,5 +1,5 @@
 {
-  "name": "@workspace-template/frontend",
+  "name": "@template/frontend",
   "type": "module",
   "scripts": {
     "dev": "node main.ts",
