@@ -3,6 +3,7 @@
   "extends": [
     "config:recommended"
   ],
+  "prHourlyLimit": 0,
   "customManagers": [
     {
       "customType": "regex",
