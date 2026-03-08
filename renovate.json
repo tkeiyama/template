@@ -1,0 +1,90 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Node.js version in devcontainer",
+      "fileMatch": [
+        "^\\.devcontainer/scripts/install-nodejs\\.sh$"
+      ],
+      "matchStrings": [
+        "VERSION=v(?<currentValue>[\\d.]+)"
+      ],
+      "depNameTemplate": "node",
+      "datasourceTemplate": "node-version",
+      "versioningTemplate": "node"
+    },
+    {
+      "customType": "regex",
+      "description": "Go version in devcontainer",
+      "fileMatch": [
+        "^\\.devcontainer/scripts/install-go\\.sh$"
+      ],
+      "matchStrings": [
+        "VERSION=(?<currentValue>[\\d.]+)"
+      ],
+      "depNameTemplate": "go",
+      "datasourceTemplate": "golang-version",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "description": "pnpm version in devcontainer",
+      "fileMatch": [
+        "^\\.devcontainer/scripts/install-pnpm\\.sh$"
+      ],
+      "matchStrings": [
+        "VERSION=(?<currentValue>[\\d.]+)"
+      ],
+      "depNameTemplate": "pnpm",
+      "datasourceTemplate": "npm",
+      "versioningTemplate": "npm"
+    },
+    {
+      "customType": "regex",
+      "description": "gopls version in devcontainer",
+      "fileMatch": [
+        "^\\.devcontainer/scripts/install-gopls\\.sh$"
+      ],
+      "matchStrings": [
+        "VERSION=v(?<currentValue>[\\d.]+)"
+      ],
+      "depNameTemplate": "golang.org/x/tools/gopls",
+      "datasourceTemplate": "go",
+      "extractVersionTemplate": "^gopls/v(?<version>.*)$",
+      "versioningTemplate": "semver"
+    },
+    {
+      "customType": "regex",
+      "description": "Claude Code version in devcontainer",
+      "fileMatch": [
+        "^\\.devcontainer/scripts/install-claude-code\\.sh$"
+      ],
+      "matchStrings": [
+        "VERSION=(?<currentValue>[\\d.]+)"
+      ],
+      "depNameTemplate": "@anthropic-ai/claude-code",
+      "datasourceTemplate": "npm",
+      "versioningTemplate": "npm"
+    }
+  ],
+  "packageRules": [
+    {
+      "description": "npm dependencies in frontend",
+      "matchManagers": [
+        "npm"
+      ],
+      "minimumReleaseAge": "5 days"
+    },
+    {
+      "description": "Go modules in backend",
+      "matchManagers": [
+        "gomod"
+      ],
+      "minimumReleaseAge": "5 days"
+    }
+  ]
+}
